@@ -14,7 +14,8 @@
     <div id="app"></div>
     <script type="text/babel">
         function App() {
-            const [products, setProducts] = React.useState([
+            const { useState } = React;
+            const [products, setProducts] = useState([
                 {
                     category: "甜甜圈",
                     content: "尺寸：14x14cm",
@@ -66,7 +67,7 @@
                     ]
                 }
             ]);
-            const [tempProduct, setTempProduct] = React.useState({});
+            const [tempProduct, setTempProduct] = useState({});
             
             return (
                 <div className="container mt-5">
@@ -88,7 +89,7 @@
                                             <td className="align-middle">{ prd.title }</td>
                                             <td className="align-middle">{ prd.origin_price }</td>
                                             <td className="align-middle">{ prd.price }</td>
-                                            <td className="align-middle">{ prd.is_enabled ?  <span className="text-success">啟用</span> : "未啟用" }</td>
+                                            <td className="align-middle">{ prd.is_enabled ?  <span className="text-success">啟用</span> : <span className="text-danger">未啟用</span> }</td>
                                             <td>
                                                 <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailModal" onClick={() => setTempProduct(prd)}>查看細節</button>
                                             </td>
